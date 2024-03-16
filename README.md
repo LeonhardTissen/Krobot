@@ -1,6 +1,10 @@
 # Stardew Valley Reminder Bot
 
-A Discord bot that sends reminders for Stardew Valley events.
+![Krobot](img/krobotbannerlarge.png)
+
+A script that sends reminders to a Discord channel for the game Stardew Valley.
+
+It shows various events such as birthdays and festivals.
 
 ## Installation
 
