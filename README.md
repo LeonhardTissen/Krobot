@@ -20,6 +20,8 @@ Copy the `.env.example` file to `.env` and fill in the required fields
 cp .env.example .env
 ```
 
+In order to load the save file, you will need to fill in the `SAVE_FILE` field. Instructions on finding your save file can be found [here](https://stardewcommunitywiki.com/Saves#Find_your_save_files).
+
 If you are running the webhook, you will need to fill in the `WEBHOOK_URL` field.
 
 If you are running the bot, you will need to fill in the `DISCORD_TOKEN` and `CHANNEL_ID` fields.
