@@ -1,13 +1,9 @@
-import os
 import xmltodict
-from dotenv import load_dotenv
 
-load_dotenv()
-
-saveLocation = os.getenv('SAVE_LOCATION')
+from .loadEnv import SAVE_LOCATION
 
 def loadSaveData():
-	with open(saveLocation, 'r') as file:
+	with open(SAVE_LOCATION, 'r') as file:
 		data = file.read()
 		parsedData = xmltodict.parse(data)
 

@@ -1,12 +1,11 @@
-import discord
+from discord import Client, Intents
 import asyncio
-import os
 
 from src.getResponse import getResponse
 from src.loadSaveData import loadSaveData
 from src.loadEnv import TOKEN, CHANNEL_ID
 
-bot = discord.Client(intents=discord.Intents.all())
+bot = Client(intents=Intents.all())
 
 @bot.event
 async def on_ready():
