@@ -1,86 +1,59 @@
 from .seasonNames import seasonNames
 
+birthdays = {
+	"Spring": {
+		4: "Kent",
+		7: "Lewis",
+		10: "Vincent",
+		14: "Haley",
+		18: "Pam",
+		20: "Shane",
+		26: "Pierre",
+		27: "Emily"
+	},
+	"Summer": {
+		4: "Jas",
+		8: "Gus",
+		10: "Maru",
+		13: "Alex",
+		17: "Sam",
+		19: "Demetrius",
+		22: "Dwarf",
+		24: "Willy",
+		26: "Leo"
+	},
+	"Fall": {
+		2: "Penny",
+		5: "Elliott",
+		11: "Jodi",
+		13: "Abigail",
+		15: "Sandy",
+		18: "Marnie",
+		21: "Robin",
+		24: "George"
+	},
+	"Winter": {
+		1: "Krobus",
+		3: "Linus",
+		7: "Caroline",
+		10: "Sebastian",
+		14: "Harvey",
+		17: "Wizard",
+		20: "Evelyn",
+		23: "Leah",
+		26: "Clint"
+	}
+}
+
 def getBirthday(day, seasonId):
 	birthday = ""
 
 	season = seasonNames[seasonId]
-	if season == "Spring":
-		if day == 4:
-			birthday = "Kent"
-		elif day == 7:
-			birthday = "Lewis"
-		elif day == 10:
-			birthday = "Vincent"
-		elif day == 14:
-			birthday = "Haley"
-		elif day == 18:
-			birthday = "Pam"
-		elif day == 20:
-			birthday = "Shane"
-		elif day == 26:
-			birthday = "Pierre"
-		elif day == 27:
-			birthday = "Emily"
-		
-	elif season == "Summer":
-		if day == 4:
-			birthday = "Jas"
-		elif day == 8:
-			birthday = "Gus"
-		elif day == 10:
-			birthday = "Maru"
-		elif day == 13:
-			birthday = "Alex"
-		elif day == 17:
-			birthday = "Sam"
-		elif day == 19:
-			birthday = "Demetrius"
-		elif day == 22:
-			birthday = "Dwarf"
-		elif day == 24:
-			birthday = "Willy"
-		elif day == 26:
-			birthday = "Leo"
 	
-	elif season == "Fall":
-		if day == 2:
-			birthday = "Penny"
-		elif day == 5:
-			birthday = "Elliott"
-		elif day == 11:
-			birthday = "Jodi"
-		elif day == 13:
-			birthday = "Abigail"
-		elif day == 15:
-			birthday = "Sandy"
-		elif day == 18:
-			birthday = "Marnie"
-		elif day == 21:
-			birthday = "Robin"
-		elif day == 24:
-			birthday = "George"
-	
-	elif season == "Winter":
-		if day == 1:
-			birthday = "Krobus"
-		elif day == 3:
-			birthday = "Linus"
-		elif day == 7:
-			birthday = "Caroline"
-		elif day == 10:
-			birthday = "Sebastian"
-		elif day == 14:
-			birthday = "Harvey"
-		elif day == 17:
-			birthday = "Wizard"
-		elif day == 20:
-			birthday = "Evelyn"
-		elif day == 23:
-			birthday = "Leah"
-		elif day == 26:
-			birthday = "Clint"
-		
-	if birthday != "":
+	# Check if the day is a birthday
+	if day in birthdays[season]:
+		birthday = birthdays[season][day]
+
 		# Link to the Stardew Valley Wiki to get information about what the character likes
 		return f"\n([{birthday}](https://stardewcommunitywiki.com/{birthday})'s Birthday :birthday:)"
 
