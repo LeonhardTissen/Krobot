@@ -1,21 +1,14 @@
-from discord import Client, Intents
+from discord_webhook import DiscordWebhook
 import asyncio
 
 from src.getResponse import getResponse
 from src.loadSaveData import loadSaveData
-from src.loadEnv import TOKEN, CHANNEL_ID
-
-bot = Client(intents=Intents.all())
-
-@bot.event
-async def on_ready():
-	print('Logged in as {0.user}'.format(bot))
-
-	channel = bot.get_channel(CHANNEL_ID)
-
-	last_day = -1
+from src.loadEnv import WEBHOOK_URL
 	
-	# Continuously check for new day
+# Continuously check for new day
+async def main():
+	last_day = -1
+
 	while True:
 		(seasonId, day, year) = loadSaveData()
 
@@ -24,9 +17,13 @@ async def on_ready():
 			last_day = day
 			response = getResponse(seasonId, day, year)
 			print(response)
-			await channel.send(response)
+			webhook = DiscordWebhook(url=WEBHOOK_URL, content=response)
+			webhookResponse = webhook.execute()
+			print(webhookResponse)
 
 		await asyncio.sleep(5)
 
 if __name__ == "__main__":
-	bot.run(TOKEN)
+	loop = asyncio.get_event_loop()
+	loop.run_until_complete(main())
+	loop.close()

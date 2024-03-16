@@ -32,3 +32,8 @@ Run the bot
 ```bash
 python3 bot.py
 ```
+
+Or use a webhook
+```bash
+python3 webhook.py
+```
