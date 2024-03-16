@@ -15,9 +15,11 @@ async def on_ready():
 
 	last_day = -1
 	
+	# Continuously check for new day
 	while True:
 		(seasonId, day, year) = loadSaveData()
 
+		# If the day has changed, send a message to the channel with the new response
 		if last_day != day:
 			last_day = day
 			response = getResponse(seasonId, day, year)

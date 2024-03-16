@@ -1,6 +1,7 @@
 def getDateSpecifics(date):
 	specifics = ""
 
+	# Add new lines for various events throughout the week
 	if date == "Sunday":
 		specifics += "\n:tv: The Queen of Sauce"
 		specifics += "\n:cactus: Buy Staircases from the Desert Trader"

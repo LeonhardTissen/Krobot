@@ -28,5 +28,6 @@ def getFestival(day, seasonId):
 
 	if festival != "":
 		return f"\n({festival})"
-		
+	
+	# If no festival, return empty string
 	return ""

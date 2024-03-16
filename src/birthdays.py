@@ -80,8 +80,9 @@ def getBirthday(day, seasonId):
 		elif day == 26:
 			birthday = "Clint"
 		
-
 	if birthday != "":
+		# Link to the Stardew Valley Wiki to get information about what the character likes
 		return f"\n([{birthday}](https://stardewcommunitywiki.com/{birthday})'s Birthday :birthday:)"
 
+	# If no birthday, return empty string
 	return ""
