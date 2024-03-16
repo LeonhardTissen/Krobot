@@ -1,7 +1,13 @@
-# Load xml and convert to json
-import xmltodict, json
+import xmltodict
+import json
+import discord
+import asyncio
+import os
+from dotenv import load_dotenv
 
-saveLocation = "/home/warze/.config/StardewValley/Saves/Warze_367185259/Warze_367185259"
+load_dotenv()
+
+saveLocation = os.getenv('SAVE_LOCATION')
 
 seasonNames = {
 	0: "Spring",
@@ -187,16 +193,6 @@ def getSaveData():
 
 		return (seasonId, day, year)
 
-
-
-		
-
-import discord
-import asyncio
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 TOKEN = os.getenv('DISCORD_TOKEN')
 
