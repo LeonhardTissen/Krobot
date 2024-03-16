@@ -6,6 +6,8 @@ A script that sends reminders to a Discord channel for the game Stardew Valley.
 
 It shows various events such as birthdays and festivals.
 
+The script can be run as a bot or alternatively as a webhook.
+
 ## Installation
 
 Install required packages
@@ -17,6 +19,10 @@ Copy the `.env.example` file to `.env` and fill in the required fields
 ```bash
 cp .env.example .env
 ```
+
+If you are running the webhook, you will need to fill in the `WEBHOOK_URL` field.
+
+If you are running the bot, you will need to fill in the `DISCORD_TOKEN` and `CHANNEL_ID` fields.
 
 ## Testing
 
@@ -37,7 +43,7 @@ Run the bot
 python3 bot.py
 ```
 
-Or use a webhook
+Or use the webhook
 ```bash
 python3 webhook.py
 ```
