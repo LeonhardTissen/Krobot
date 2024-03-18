@@ -15,7 +15,7 @@ dateSpecifics = {
 		":arrow_up: Deluxe Speed-Gro from the Oasis for 80g",
 	],
 	"Friday": [
-		":pickaxe: Clint's Blacksmith shop is closed",
+		":pick: Clint's Blacksmith shop is closed",
 	],
 }
 
