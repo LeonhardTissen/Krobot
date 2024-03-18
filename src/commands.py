@@ -3,7 +3,7 @@ from .currentDay import getCurrentDay
 from .seasonNames import seasonNames
 from .reminders import getReminders
 
-async def execCommand(args, channel):
+async def execCommand(args, message):
 	# Example: in 3 days Ancient fruit will be ready
 	command = args[0]
 	if command == "in":
@@ -12,7 +12,7 @@ async def execCommand(args, channel):
 		maximumDays = 112
 
 		if addedDays < 1 or addedDays > maximumDays:
-			await channel.send(f"Please enter a valid number of days (1-{maximumDays})")
+			await message.channel.send(f"Please enter a valid number of days (1-{maximumDays})")
 			return
 
 		reminder = " ".join(args[3:])
@@ -32,9 +32,10 @@ async def execCommand(args, channel):
 			"day": newDay,
 			"seasonId": seasonId,
 			"year": year,
-			"reminder": reminder
+			"reminder": reminder,
+			"initiator": message.author.id
 		})
 
-		await channel.send(f"Reminder set for {seasonNames[seasonId]} {newDay}, Year {year}: {reminder}")
+		await message.channel.send(f"Reminder set for {seasonNames[seasonId]} {newDay}, Year {year}: {reminder}")
 	elif command == "reminders":
-		await channel.send(getReminders())
+		await message.channel.send(getReminders())

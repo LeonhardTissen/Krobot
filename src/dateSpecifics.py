@@ -7,6 +7,9 @@ dateSpecifics = {
 	"Monday": [
 		":clipboard: New Special Orders available",
 	],
+	"Tuesday": [
+		":hammer: Robin's shop is closed",
+	],
 	"Wednesday": [
 		":tv: The Queen of Sauce Re-run",
 	],

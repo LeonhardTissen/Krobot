@@ -46,7 +46,7 @@ async def on_message(message):
 
 	args = message.content.split(" ")
 
-	await execCommand(args, message.channel)
+	await execCommand(args, message)
 
 if __name__ == "__main__":
 	bot.run(TOKEN)
