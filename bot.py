@@ -1,4 +1,4 @@
-from discord import Client, Intents
+from discord import Client, Intents, Streaming
 import asyncio
 
 from src.getResponse import getResponse
@@ -6,6 +6,7 @@ from src.loadSaveData import loadSaveData
 from src.loadEnv import TOKEN, CHANNEL_ID
 from src.currentDay import isNewDay
 from src.commands import execCommand
+from src.seasonNames import seasonNames
 
 bot = Client(intents=Intents.all())
 
@@ -14,6 +15,8 @@ async def on_ready():
 	print('Logged in as {0.user}'.format(bot))
 
 	channel = bot.get_channel(CHANNEL_ID)
+
+	currentStatus = None
 	
 	# Continuously check for new day
 	while True:
@@ -26,6 +29,13 @@ async def on_ready():
 			response = getResponse(seasonId, day, year)
 			print(response)
 			await channel.send(response)
+
+		# Set status to current day
+		status = f"{seasonNames[seasonId]} {day}, Year {year}"
+		
+		if currentStatus != status:
+			currentStatus = status
+			await bot.change_presence(activity=Streaming(name=status, url="https://twitch.tv/WarzeDev"))
 
 		await asyncio.sleep(5)
 

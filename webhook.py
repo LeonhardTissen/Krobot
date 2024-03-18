@@ -17,7 +17,9 @@ async def main():
 			print(response)
 			webhook = DiscordWebhook(url=WEBHOOK_URL, content=response)
 			webhookResponse = webhook.execute()
-			print(webhookResponse)
+			
+			if webhookResponse.status_code != 200:
+				print(f"Error sending message to Discord: {webhookResponse.status_code}")
 
 		await asyncio.sleep(5)
 

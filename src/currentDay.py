@@ -9,7 +9,7 @@ def isNewDay(seasonId, day, year):
 			# If the day has changed, update lastday.json and return True
 			if last_day['seasonId'] != seasonId or last_day['day'] != day or last_day['year'] != year:
 				with open('lastday.json', 'w') as f:
-					json.dump({'seasonId': seasonId, 'day': day, 'year': year}, f)
+					json.dump({'seasonId': seasonId, 'day': day, 'year': year}, f, indent=4)
 				return True
 			else:
 				return False
@@ -17,7 +17,7 @@ def isNewDay(seasonId, day, year):
 	except FileNotFoundError:
 		# Create lastday.json if it doesn't exist
 		with open('lastday.json', 'w') as f:
-			json.dump({'seasonId': seasonId, 'day': day, 'year': year}, f)
+			json.dump({'seasonId': seasonId, 'day': day, 'year': year}, f, indent=4)
 		return True
 
 def getCurrentDay():
