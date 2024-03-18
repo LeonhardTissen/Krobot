@@ -20,5 +20,12 @@ def isNewDay(seasonId, day, year):
 			json.dump({'seasonId': seasonId, 'day': day, 'year': year}, f)
 		return True
 
-
+def getCurrentDay():
+	# Get current day from lastday.json
+	try:
+		with open('lastday.json', 'r') as f:
+			last_day = json.load(f)
+			return (last_day['day'], last_day['seasonId'], last_day['year'])
+	except FileNotFoundError:
+		return 0
 	

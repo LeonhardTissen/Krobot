@@ -12,8 +12,16 @@ def loadSaveData():
 
 		seasonId = int(playerData['seasonForSaveGame'])
 
-		year = playerData['yearForSaveGame']
+		year = int(playerData['yearForSaveGame'])
 
 		day = int(playerData['dayOfMonthForSaveGame'])
+
+		# Account for rare case where game thinks the day is 29
+		if day > 28:
+			day = 1
+			seasonId += 1
+			if seasonId > 3:
+				seasonId = 0
+				year += 1
 
 		return (seasonId, day, year)

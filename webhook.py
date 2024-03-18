@@ -4,7 +4,7 @@ import asyncio
 from src.getResponse import getResponse
 from src.loadSaveData import loadSaveData
 from src.loadEnv import WEBHOOK_URL
-from src.isNewDay import isNewDay
+from src.currentDay import isNewDay
 	
 # Continuously check for new day
 async def main():
