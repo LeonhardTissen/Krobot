@@ -7,7 +7,17 @@ async def execCommand(args, message):
 	# Example: in 3 days Ancient fruit will be ready
 	command = args[0]
 	if command == "in":
-		addedDays = int(args[1])
+		addedType = args[2]
+
+		if addedType == "days":
+			addedDays = int(args[1])
+		elif addedType == "weeks":
+			addedDays = int(args[1]) * 7
+		elif addedType == "months":
+			addedDays = int(args[1]) * 28
+		else:
+			await message.channel.send("Please enter a valid time type (`days`, `weeks`, `months`)")
+			return
 
 		maximumDays = 112
 
