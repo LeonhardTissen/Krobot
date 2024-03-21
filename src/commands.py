@@ -8,13 +8,14 @@ async def execCommand(args, message):
 	command = args[0]
 	if command == "in":
 		addedType = args[2]
+		addedNumber = args[1]
 
-		if addedType == "days":
-			addedDays = int(args[1])
-		elif addedType == "weeks":
-			addedDays = int(args[1]) * 7
-		elif addedType == "months":
-			addedDays = int(args[1]) * 28
+		if addedType == "days" or addedType == "day":
+			addedDays = int(addedNumber)
+		elif addedType == "weeks" or addedType == "week":
+			addedDays = int(addedNumber) * 7
+		elif addedType == "months" or addedType == "month":
+			addedDays = int(addedNumber) * 28
 		else:
 			await message.channel.send("Please enter a valid time type (`days`, `weeks`, `months`)")
 			return
