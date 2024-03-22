@@ -29,7 +29,7 @@ def checkReminders(day, seasonId, year):
 	return message
 
 def getReminders():
-	message = "### All pending reminders:"
+	message = "### __All pending reminders__:"
 
 	try:
 		with open('reminders.json', 'r') as f:
@@ -37,7 +37,7 @@ def getReminders():
 			reminders = reminderJson['reminders']
 
 			if len(reminders) == 0:
-				return "### No pending reminders"
+				return "### __No pending reminders__"
 			
 			reminders = sorted(reminders, key=lambda x: (x['year'], x['seasonId'], x['day']))
 

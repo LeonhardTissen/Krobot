@@ -3,12 +3,15 @@ dateSpecifics = {
 		":tv: The Queen of Sauce",
 		":cactus: Staircases from the Desert Trader for 1 Jade",
 		":gift: The gift limit has been reset",
+		":pig2: Traveling Cart in the Cindersap Forest",
 	],
 	"Monday": [
 		":clipboard: New Special Orders available",
+		":coconut: Coconuts at the Oasis for 400g",
 	],
 	"Tuesday": [
 		":hammer: Robin's shop is closed",
+		":women_wrestling: If it's not raining, Robin and Marnie close their shops to attend exercise class",
 	],
 	"Wednesday": [
 		":tv: The Queen of Sauce Re-run",
@@ -19,6 +22,7 @@ dateSpecifics = {
 	],
 	"Friday": [
 		":pick: Clint's Blacksmith shop is closed",
+		":pig2: Traveling Cart in the Cindersap Forest",
 	],
 }
 
