@@ -1,11 +1,13 @@
 import json
 from .seasonNames import seasonNames
 
+remindersFile = 'reminders.json'
+
 def checkReminders(day, seasonId, year):
 	message = ""
 
 	try:
-		with open('reminders.json', 'r') as f:
+		with open(remindersFile, 'r') as f:
 			reminderJson = json.load(f)
 			reminders = reminderJson['reminders']
 
@@ -20,7 +22,7 @@ def checkReminders(day, seasonId, year):
 			for reminder in reminders_to_remove:
 				reminders.remove(reminder)
 
-			with open('reminders.json', 'w') as f:
+			with open(remindersFile, 'w') as f:
 				json.dump(reminderJson, f, indent=4)
 
 	except FileNotFoundError:
@@ -32,7 +34,7 @@ def getReminders():
 	message = "### __All pending reminders__:"
 
 	try:
-		with open('reminders.json', 'r') as f:
+		with open(remindersFile, 'r') as f:
 			reminderJson = json.load(f)
 			reminders = reminderJson['reminders']
 

@@ -1,29 +1,31 @@
 import json
 
+lastDayFile = 'lastday.json'
+
 def isNewDay(seasonId, day, year):
-	# Check if lastday.json exists
+	# Check if file exists
 	try:
-		with open('lastday.json', 'r') as f:
+		with open(lastDayFile, 'r') as f:
 			last_day = json.load(f)
 
-			# If the day has changed, update lastday.json and return True
+			# If the day has changed, update file and return True
 			if last_day['seasonId'] != seasonId or last_day['day'] != day or last_day['year'] != year:
-				with open('lastday.json', 'w') as f:
+				with open(lastDayFile, 'w') as f:
 					json.dump({'seasonId': seasonId, 'day': day, 'year': year}, f, indent=4)
 				return True
 			else:
 				return False
 
 	except FileNotFoundError:
-		# Create lastday.json if it doesn't exist
-		with open('lastday.json', 'w') as f:
+		# Create file if it doesn't exist
+		with open(lastDayFile, 'w') as f:
 			json.dump({'seasonId': seasonId, 'day': day, 'year': year}, f, indent=4)
 		return True
 
 def getCurrentDay():
-	# Get current day from lastday.json
+	# Get current day from file
 	try:
-		with open('lastday.json', 'r') as f:
+		with open(lastDayFile, 'r') as f:
 			last_day = json.load(f)
 			return (last_day['day'], last_day['seasonId'], last_day['year'])
 	except FileNotFoundError:
